@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import HomeScreen from "./screens/HomeScreen";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+//createBrowserRouter: This function is used to create a browser router object. It's responsible for handling the navigation between different pages or components in a web application.
+// createRoutesFromElements: This function takes JSX elements (in this case, Route components) and converts them into a format that the router can understand.
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route path="/" element={<HomeScreen />} />
+    </Route>
+  )
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
