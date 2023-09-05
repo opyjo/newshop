@@ -5,7 +5,7 @@ import generateToken from "../utils/generateToken.js";
 // @desc    Auth user and get token
 // @route   POST /api/users/auth
 // @access  Private
-const authUser = asyncHandler(async (req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   if (user && (await user.matchPassword(password))) {
@@ -147,7 +147,7 @@ const updateUser = asyncHandler(async (req, res) => {
 });
 
 export {
-  authUser,
+  loginUser,
   logoutUser,
   getUserProfile,
   updateUserProfile,

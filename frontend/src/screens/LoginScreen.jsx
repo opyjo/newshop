@@ -20,6 +20,9 @@ const LoginScreen = () => {
 
   const { userInfo } = useSelector((state) => state.auth);
 
+  //useLocation(): This React Hook provides access to the location object, which contains information about the current URL.
+  //const { search } = useLocation();: This destructures the location object to get the search string, which contains the query parameters (e.g., ?param1=value1&param2=value2).
+
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/";
