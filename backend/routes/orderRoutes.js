@@ -10,6 +10,7 @@ import {
 } from "../controllers/orderController.js";
 import { protect, admin } from "../middleware/authMiddleware.js";
 
+// "/" = "/api/orders"
 router.route("/").post(protect, addOrderItems);
 // router.route("/mine").get(protect, getMyOrders);
 router.route("/:id").get(protect, getOrderById);
